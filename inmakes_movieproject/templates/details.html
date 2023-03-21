@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row vh-100">
+
+
+
+        <div class="col-6 p-4">
+            <div class="p-3 bg-white p-2 text-dark bg-opacity-10">
+                <img src="{{obj.img.url}}" alt="NO-img" height="240px" class="border border-light rounded-lg">
+            </div>
+        </div>
+        <div class="col-6 p-4">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Movie Name</th>
+                        <th>Description</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{obj.name}}</td>
+                        <td>{{obj.desc}}</td>
+                        <td>{{obj.year}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="justify-content-center">
+                <div class="row">
+                   <div class="text-center">
+                    <button class="btn btn-danger m-4"><a class="text-light text-decoration-none" href="{% url 'update' obj.id %}">Update</a></button>
+                    <button class="btn btn-danger"><a class="text-light" href="{% url 'delete' obj.id %}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></button>
+                   </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
